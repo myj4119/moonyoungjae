@@ -1,6 +1,6 @@
 #=========== VPC=============
 module "main_vpc" {
-  source                   = "./custom_vpc"
+  source                   = "./vpc"
   main_vpc_cidr            = var.main_vpc_cidr
   default_public_subnet_1  = var.default_public_subnet_1
   default_private_subnet_1 = var.default_private_subnet_1
@@ -13,7 +13,7 @@ module "main_vpc" {
 
 #============ EC2 ============
 module "main_ec2" {
-  source                         = "./custom_ec2"
+  source                         = "./ec2"
   vpc_id                         = module.main_vpc.vpc_id
   public_subnet_id               = module.main_vpc.public_subnet_ids[0]
   main_ec2_ami                   = var.main_ec2_ami
