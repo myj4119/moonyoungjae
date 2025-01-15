@@ -1,6 +1,3 @@
-# Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,terraform
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,terraform
-
 ### Terraform ###
 # Local .terraform directories
 **/.terraform/*
@@ -19,6 +16,9 @@ crash.*.log
 # to change depending on the environment.
 *.tfvars
 *.tfvars.json
+
+# Allow terraform.tfvars to be included in version control
+!terraform.tfvars
 
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
