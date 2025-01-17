@@ -8,7 +8,7 @@ default_route_cidr       = "0.0.0.0/0"
 
 #==================== EC2 =====================
 main_ec2_ami           = "ami-04c535bac3bf07b9a"
-main_ec2_instance_type = "t2.small"
+main_ec2_instance_type = "t2.medium"
 key_name               = "myj4119"
 
 main_default_root_block_device = [{
@@ -38,6 +38,13 @@ main_default_sg_ingress_rule = [
     description = "ALL pass"
     from_port   = 8080
     to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  },
+  {
+    description = "ALL pass"
+    from_port   = 41379
+    to_port     = 41379
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
