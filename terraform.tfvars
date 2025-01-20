@@ -21,7 +21,7 @@ EKS_private_subnet = [
 #==================== EC2 =====================
 main_ec2_ami           = "ami-04c535bac3bf07b9a"
 main_ec2_instance_type = "t2.medium"
-key_name               = "myj4119"
+key_name               = "키 명"
 
 main_default_root_block_device = [{
   volume_type           = "gp2"

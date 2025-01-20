@@ -35,19 +35,19 @@ module "main_ec2" {
 module "eks" {
   # eks 모듈에서 사용할 변수 정의
   source          = "./modules/eks-cluster"
-  cluster_name    = "myj-cluster"
+  cluster_name    = "EKS 클러스터 명"
   cluster_version = "1.24"
-  vpc_id          = "vpc-0a66310f8104d76b7"
+  vpc_id          = "VPC 명"
 
-  private_subnets = ["subnet-05290ef0857488034", "subnet-0f32283e8457a538e"]
-  public_subnets  = ["subnet-09d0d910f63be90e4", "subnet-0436da2309196ecac"]
+  private_subnets = ["EKS 서브넷", "EKS 서브넷"]
+  public_subnets  = ["EKS 서브넷", "EKS 서브넷"]
 }
 
 
 #========= backend 설정 ========= 
 resource "aws_s3_bucket" "tf_backend" {
   count  = terraform.workspace == "default" ? 1 : 0 #workspace가 default일 때만 생성이 되고 아니면 고려하지 않는다.
-  bucket = "tf-backend-myjtest"
+  bucket = "backend 버킷명"
 
 
   versioning {
