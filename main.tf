@@ -7,6 +7,10 @@ module "main_vpc" {
   default_route_cidr       = var.default_route_cidr
   lo_a                     = var.lo_a
 
+  service_vpc_cidr   = var.service_vpc_cidr
+  EKS_public_subnet  = var.EKS_public_subnet
+  EKS_private_subnet = var.EKS_private_subnet
+
   #env = terraform.workspace
 }
 

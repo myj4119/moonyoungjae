@@ -9,3 +9,6 @@ variable "default_route_cidr" {}
 variable "lo_a" {}
 
 
+variable "service_vpc_cidr" {}
+variable "EKS_public_subnet" {}
+variable "EKS_private_subnet" {}

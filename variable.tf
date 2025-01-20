@@ -1,10 +1,15 @@
 variable "lo_a" {}
+variable "lo_c" {}
 
 #==================== VPC ====================
 variable "main_vpc_cidr" {}
 variable "default_public_subnet_1" {}
 variable "default_private_subnet_1" {}
 variable "default_route_cidr" {}
+
+variable "service_vpc_cidr" {}
+variable "EKS_public_subnet" {}
+variable "EKS_private_subnet" {}
 
 
 #=================== EC2 =====================

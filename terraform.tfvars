@@ -1,9 +1,21 @@
 lo_a = "ap-northeast-2a"
+lo_c = "ap-northeast-2c"
 #==================== VPC =====================
 main_vpc_cidr            = "10.0.0.0/16"
 default_public_subnet_1  = "10.0.0.0/24"
 default_private_subnet_1 = "10.0.100.0/24"
 default_route_cidr       = "0.0.0.0/0"
+
+service_vpc_cidr = "100.0.0.0/16"
+EKS_public_subnet = [
+  { cidr_block = "100.0.10.0/24", availability_zone = "ap-northeast-2a" },
+  { cidr_block = "100.0.20.0/24", availability_zone = "ap-northeast-2c" }
+]
+
+EKS_private_subnet = [
+  { cidr_block = "100.0.100.0/24", availability_zone = "ap-northeast-2a" },
+  { cidr_block = "100.0.200.0/24", availability_zone = "ap-northeast-2c" }
+]
 
 
 #==================== EC2 =====================
