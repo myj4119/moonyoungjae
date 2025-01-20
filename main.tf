@@ -1,6 +1,6 @@
 #=========== VPC=============
 module "main_vpc" {
-  source                   = "./vpc"
+  source                   = "./modules/vpc"
   main_vpc_cidr            = var.main_vpc_cidr
   default_public_subnet_1  = var.default_public_subnet_1
   default_private_subnet_1 = var.default_private_subnet_1
@@ -17,7 +17,7 @@ module "main_vpc" {
 
 #============ EC2 ============
 module "main_ec2" {
-  source                         = "./ec2"
+  source                         = "./modules/ec2"
   vpc_id                         = module.main_vpc.vpc_id
   public_subnet_id               = module.main_vpc.public_subnet_ids[0]
   main_ec2_ami                   = var.main_ec2_ami
@@ -29,6 +29,18 @@ module "main_ec2" {
   main_default_sg_ingress_rule   = var.main_default_sg_ingress_rule
   main_default_sg_egress_rule    = var.main_default_sg_egress_rule
   lo_a                           = var.lo_a
+}
+
+#========= EKS =========
+module "eks" {
+  # eks 모듈에서 사용할 변수 정의
+  source          = "./modules/eks-cluster"
+  cluster_name    = "myj-cluster"
+  cluster_version = "1.24"
+  vpc_id          = "vpc-0a66310f8104d76b7"
+
+  private_subnets = ["subnet-05290ef0857488034", "subnet-0f32283e8457a538e"]
+  public_subnets  = ["subnet-09d0d910f63be90e4", "subnet-0436da2309196ecac"]
 }
 
 
