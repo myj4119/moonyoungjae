@@ -79,7 +79,7 @@ module "eks" {
   ]
 
   aws_auth_accounts = [
-    "844554358429"
+    "AWS사용자ID"
   ]
 }
 
