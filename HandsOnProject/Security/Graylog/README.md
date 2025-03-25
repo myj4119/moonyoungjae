@@ -47,7 +47,7 @@ $ sudo usermod -aG docker $USER
 <br> <br> <br> <br>
 
 ## 2. Dcoekr-compose 설치
-최신 Docker Compose 버전 가져오기
+####최신 Docker Compose 버전 가져오기
 ``` bash
 $ LATEST_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep '"tag_name":' | cut -d '"' -f 4)
 ```
