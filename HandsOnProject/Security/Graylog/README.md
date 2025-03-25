@@ -4,6 +4,7 @@
 ![image](https://github.com/user-attachments/assets/9dadd1c2-a1bf-4cb0-9dc1-f66fb5e6a2ec)
 
 <br>
+
 - AWS Cloud Trail → AWS CloudWatch → AWS Kinesis Data Stream → Graylog <br>
 
 - Graylog는 Private 환경으로 구성하였고 같은 Private Subnet에 Windows 서버를 생성하여 Windows 서버에서 웹페이지에 접속 가능하게 설정하였습니다. <br>
