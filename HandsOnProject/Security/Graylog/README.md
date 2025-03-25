@@ -65,11 +65,13 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 ``` bash
 $ sudo vi docker-compose.yml
 ```
+자세한 내용은 docker-compose.yml 참조
  <br> <br> <br> <br>
 ## 4. .env 구성
 ``` bash
 $ sudo vi .env
 ```
+자세한 내용은 .env.example 참조
  <br> <br> <br> <br>
 ## 5. 암호 발급
 pwgen 설치
