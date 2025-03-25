@@ -2,71 +2,109 @@
 
 # Graylog를 통한 CloudTrail 로그 관리
 
-AWS Cloud Trail → AWS Cloud Watch → AWS Kinesis Data Stream → Graylog  
+AWS Cloud Trail → AWS Cloud Watch → AWS Kinesis Data Stream → Graylog <br>
 
-Graylog는 Private 환경으로 구성하였고 같은 Private Subnet에 Windows 서버를 생성하여 Windows 서버에서 웹페이지에 접속 가능하게 설정하였습니다.  
+Graylog는 Private 환경으로 구성하였고 같은 Private Subnet에 Windows 서버를 생성하여 Windows 서버에서 웹페이지에 접속 가능하게 설정하였습니다. <br>
 
-만약 외부에서 사용을 원한다면 인프라 구성 앞단에 방화벽 장비와 ALB를 두어 보안적인 부분을 구성하여 사용하면 되지만 이번 내용에서는 Private Subnet에 구성하였습니다.    
+만약 외부에서 사용을 원한다면 인프라 구성 앞단에 방화벽 장비와 ALB를 두어 보안적인 부분을 구성하여 사용하면 되지만 이번 내용에서는 Private Subnet에 구성하였습니다.  <br>
 
 ## Graylog 서버 스펙
 - OS : Amazon Linux 2023
 - Type : m5.large
 - Disk : 50GB
-  
-##Graylog 서버 구성 방법
+   <br> <br> <br> <br>
+## Graylog 서버 구성 방법
 - Docker-compose를 통한 구성
+ <br> <br> <br> <br>
 
-
-##1. Docker 설치
+## 1. Docker 설치
 Docker 패키지 설치
 ```bash
 $ sudo yum install -y docker
 ```
+ <br> <br>
+
 Docker 서비스 시작
+``` bash
 $ sudo systemctl start docker
+```
+ <br> <br>
 
 Docker 서비스 부팅 시 자동 시작 설정
+``` bash
 $ sudo systemctl enable docker
+```
+ <br> <br>
 
 현재 사용자에게 Docker 실행 권한 부여
+``` bash
 $ sudo usermod -aG docker $USER
+```
+ <br> <br> <br> <br>
 
-
-2. Dcoekr-compose 설치
+## 2. Dcoekr-compose 설치
 최신 Docker Compose 버전 가져오기
+``` bash
 $ LATEST_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep '"tag_name":' | cut -d '"' -f 4)
+```
+<br><br>
 
 Docker Compose 바이너리 다운로드
+``` bash
 $ sudo curl -L "https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+ <br> <br>
 
 실행 권한 부여
+``` bash
 $ sudo chmod +x /usr/local/bin/docker-compose
-
-3. docker-compose.yml 구성
+```
+ <br> <br> <br> <br>
+## 3. docker-compose.yml 구성
+``` bash
 $ sudo vi docker-compose.yml
-
-4. .env 구성
+```
+ <br> <br> <br> <br>
+## 4. .env 구성
+``` bash
 $ sudo vi .env
-
-5. 암호 발급
+```
+ <br> <br> <br> <br>
+## 5. 암호 발급
 pwgen 설치
+``` bash
 $ sudo yum install -y pwgen
+```
 
 1개의 보안성이 높은 96자리 랜덤 패스워드 생성
+``` bash
 $ sudo pwgen -N 1 -s 96
+```
+ <br> <br>
 
 패스워드를 sha-256 해시 함수로 변환
+``` bash
 $ sudo echo -n [사용자 패스워드] | sha256sum
+```
+ <br> <br>
 
 .env에 패스워드 입력
+ <br> <br> <br> <br>
 
-6. Graylog 설정 확인
+
+## 6. Graylog 설정 확인
 Linux 커널 파라미터 변경 (Datanode는 많은 메모리 매핑을 필요로 함)
+``` bash
 $ echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
 $ sudo sysctl -p
+```
+ <br> <br>
 
 Graylog 실행 확인
+``` bash
 $ sudo docker-compose logs graylog
+```
+ <br> <br>
 
 ``` bash
 ...
@@ -102,10 +140,10 @@ graylog-1  | ===================================================================
 graylog-1  | 
 ...
 ```
+ <br> <br> <br> <br>
+## 7. Graylog 웹페이지 접속
 
-7. Graylog 웹페이지 접속
-
-
-8. Graylog와 AWS Cloud Watch 연동
+ <br> <br> <br> <br>
+## 8. Graylog와 AWS Cloud Watch 연동
 
 
