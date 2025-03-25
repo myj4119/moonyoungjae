@@ -22,25 +22,25 @@
 <br> <br> <br>
 
 ## 1. Docker 설치
-Docker 패키지 설치
+#### Docker 패키지 설치
 ```bash
 $ sudo yum install -y docker
 ```
 <br> <br>
 
-Docker 서비스 시작
+#### Docker 서비스 시작
 ``` bash
 $ sudo systemctl start docker
 ```
 <br> <br>
 
-Docker 서비스 부팅 시 자동 시작 설정
+#### Docker 서비스 부팅 시 자동 시작 설정
 ``` bash
 $ sudo systemctl enable docker
 ```
  <br> <br>
 
-현재 사용자에게 Docker 실행 권한 부여
+#### 현재 사용자에게 Docker 실행 권한 부여
 ``` bash
 $ sudo usermod -aG docker $USER
 ```
@@ -53,13 +53,13 @@ $ LATEST_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/r
 ```
 <br><br>
 
-Docker Compose 바이너리 다운로드
+#### Docker Compose 바이너리 다운로드
 ``` bash
 $ sudo curl -L "https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 <br> <br>
 
-실행 권한 부여
+#### 실행 권한 부여
 ``` bash
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
@@ -77,25 +77,25 @@ $ sudo vi .env
 자세한 내용은 .env.example 참조
 <br> <br> <br> <br>
 ## 5. 암호 발급
-pwgen 설치
+#### pwgen 설치
 ``` bash
 $ sudo yum install -y pwgen
 ```
 <br><br>
 
-1개의 보안성이 높은 96자리 랜덤 패스워드 생성
+#### 1개의 보안성이 높은 96자리 랜덤 패스워드 생성
 ``` bash
 $ sudo pwgen -N 1 -s 96
 ```
 <br> <br>
 
-패스워드를 sha-256 해시 함수로 변환
+#### 패스워드를 sha-256 해시 함수로 변환
 ``` bash
 $ sudo echo -n [사용자 패스워드] | sha256sum
 ```
 <br> <br>
 
-.env에 패스워드 입력
+#### .env에 패스워드 입력
 ``` bash
 # You MUST set a secret to secure/pepper the stored user passwords here. Use at least 64 characters.
 # Generate one by using for example: pwgen -N 1 -s 96
@@ -116,14 +116,14 @@ GRAYLOG_ROOT_PASSWORD_SHA2="[sha-256 해시 함수로 변환한 패스워드 입
 
 
 ## 6. Graylog 설정 확인
-Linux 커널 파라미터 변경 (Datanode는 많은 메모리 매핑을 필요로 함)
+#### Linux 커널 파라미터 변경 (Datanode는 많은 메모리 매핑을 필요로 함)
 ``` bash
 $ echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
 $ sudo sysctl -p
 ```
 <br> <br>
 
-Graylog 실행 확인
+#### Graylog 실행 확인
 ``` bash
 $ sudo docker-compose logs graylog
 ```
@@ -165,36 +165,39 @@ graylog-1  |
 ```
 <br> <br> <br>
 ## 7. Graylog 웹페이지 접속
-Graylog 웹페이지 접속 (http://[graylog_serverip:포트])
+#### Graylog 웹페이지 접속 (http://[graylog_serverip:포트])
 ![image](https://github.com/user-attachments/assets/ff07bf1a-2749-4d0c-be49-9d7333d33196)
 
-<br> <br> <br>
+<br><br><br>
 ## 8. Graylog와 AWS CloudWatch 연동
-Graylog 웹페이지 → System → Inputs → AWS Kinesis/CloudWatch
+#### Graylog 웹페이지 → System → Inputs → AWS Kinesis/CloudWatch
 ![77](https://github.com/user-attachments/assets/c8381ccd-58e7-4880-8e86-170861af4c09)
-<br>
+<br><br>
 
-AWS IAM 사용자의 Access Key 입력, AWS에서 Kinesis 사용을 위한 정책 생성
+#### AWS IAM 사용자의 Access Key 입력, AWS에서 Kinesis 사용을 위한 정책 생성
 ![88](https://github.com/user-attachments/assets/b61b9387-53e9-46b6-aa4c-a9537e49e4b1)
+<br>
 정책은 우측에 있는 Show Recommended Policy을 확인하여 생성 및 권한부여 진행
-<br>
+<br><br>
 
-AWS Kinesis 생성
+#### AWS Kinesis 생성
 ![99](https://github.com/user-attachments/assets/99f42805-b441-4c85-a652-5e4c04251750)
+<br>
 Kinesis 이름을 지정
-<br>
+<br><br>
 
-AWS CloudWatch 생성
+#### AWS CloudWatch 생성
 ![8899](https://github.com/user-attachments/assets/e8c0c74d-22c8-444b-bda6-cb6503dde596)
+<br>
 AWS CloudTrail의 Trail을 생성하고 CloudWatch Log 옵션을 활성화 
-<br>
+<br><br>
 
-AWS Knesis가 생성되었는지 확인
+#### AWS Knesis가 생성되었는지 확인
 ![9900](https://github.com/user-attachments/assets/f87a1156-20b1-4675-817b-cf44067f1430)
-<br>
+<br><br>
 
-Graylog 웹페이지에서 CloudTrail 이벤트에 대한 값이 제대로 들어오는지 확인
+#### Graylog 웹페이지에서 CloudTrail 이벤트에 대한 값이 제대로 들어오는지 확인
 ![13](https://github.com/user-attachments/assets/6766adb7-4f98-4df0-9108-53a7d38165f2)
-
+<br>
 ![44](https://github.com/user-attachments/assets/53ef0b3a-115e-4914-86d3-3d88e18faa4b)
 
