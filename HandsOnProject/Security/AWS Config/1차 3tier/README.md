@@ -38,23 +38,23 @@ AWS → AWS Config → 시작하기 진행
 ![2](https://github.com/user-attachments/assets/e3de1c82-f1db-4421-8966-726cce70d0e8)
 <br><br>
 
-#### 옵션값 적용
+### 1. 옵션값 적용
 ![3](https://github.com/user-attachments/assets/bebebc1c-e45b-413a-abe0-d07529d05496)
 <br><br>
 
-#### 생성된 대시보드 확인 및 규정 준수 팩 설정
+### 2. 생성된 대시보드 확인 및 규정 준수 팩 설정
 ![4](https://github.com/user-attachments/assets/ebc576be-1369-42b9-8033-ef5683b8d7a9)
 <br><br>
 ![5](https://github.com/user-attachments/assets/b242d9e6-082b-47de-9cbe-108710267049)
 <br><br>
 
-#### 템플릿 지정
+### 3. 템플릿 지정
 ![6](https://github.com/user-attachments/assets/8aefbd00-db30-4b5f-94a3-8fe01f7cd3e6)
 KISMS의 샘플 템플릿을 사용
 <br><br>
 ![7](https://github.com/user-attachments/assets/25e4fd23-3feb-4f58-b9a9-da96cff0b192)
 <br><br>
-#### 미준수 규칙 확인
+### 4. 미준수 규칙 확인
 ![8](https://github.com/user-attachments/assets/d7b07a93-d5af-493c-aaf0-e9952bfab06f)
 
 
