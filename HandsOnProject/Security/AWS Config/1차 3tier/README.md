@@ -16,12 +16,13 @@ Instance
  - Disk : 20GB
 <br>
 
-ALB 
- - WEB 이중화
-<br>
+## SG 구성
+| Name | Type | Port | | Source |
+|:---------:|:---------:|:---------:|:---------:|
+| bastion-SG  | SSH   | 22  | 0.0.0.0/0  |
+| WEB-SG  | SSH, HTTP   | 22, 80  | bastion  |
+| WAS-SG  | SSH, HTTP   | 22,8080  | bastion, private subnet  |
+| DB-SG  | MySQL   | 3306  | was, bastion  |
+| ALB-SG  | HTTP   | 80  | 0.0.0.0/0  |
 
-NLB
- - WAS 이중화
-
-RDS
- - MYSQL
+** <span style="color:red">AWS Config에 대한 내용이므로 인프라 구성에 대한 설명은 다른 항목에서 진행 예정</span> **
