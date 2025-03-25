@@ -1,4 +1,4 @@
-g![image](https://github.com/user-attachments/assets/9dadd1c2-a1bf-4cb0-9dc1-f66fb5e6a2ec)
+![image](https://github.com/user-attachments/assets/9dadd1c2-a1bf-4cb0-9dc1-f66fb5e6a2ec)
 
 Graylog를 통한 CloudTrail 로그 관리
 
@@ -19,8 +19,9 @@ Graylog 서버 구성 방법
 
 1. Docker 설치
 Docker 패키지 설치
+```bash
 $ sudo yum install -y docker
-
+```
 Docker 서비스 시작
 $ sudo systemctl start docker
 
