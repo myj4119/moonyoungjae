@@ -1,7 +1,7 @@
-![image](https://github.com/user-attachments/assets/9dadd1c2-a1bf-4cb0-9dc1-f66fb5e6a2ec)
-
 # Graylog를 통한 CloudTrail 로그 관리
-
+<br>
+![image](https://github.com/user-attachments/assets/9dadd1c2-a1bf-4cb0-9dc1-f66fb5e6a2ec)
+<br>
 - AWS Cloud Trail → AWS Cloud Watch → AWS Kinesis Data Stream → Graylog <br>
 
 - Graylog는 Private 환경으로 구성하였고 같은 Private Subnet에 Windows 서버를 생성하여 Windows 서버에서 웹페이지에 접속 가능하게 설정하였습니다. <br>
@@ -162,11 +162,13 @@ graylog-1  |
 ```
 <br> <br> <br>
 ## 7. Graylog 웹페이지 접속
+Graylog 웹페이지 접속 (http://[graylog_serverip:포트])
 ![image](https://github.com/user-attachments/assets/ff07bf1a-2749-4d0c-be49-9d7333d33196)
+<br>
 
+웹페이지 초기 세팅 진행
 ![2](https://github.com/user-attachments/assets/e9dcbe82-2b41-4563-8b15-f6a0d9ba8f11)
-
-
+<br>
 
 <br> <br> <br>
 ## 8. Graylog와 AWS Cloud Watch 연동
@@ -180,5 +182,7 @@ graylog-1  |
 
 ![9900](https://github.com/user-attachments/assets/f87a1156-20b1-4675-817b-cf44067f1430)
 
+![13](https://github.com/user-attachments/assets/6766adb7-4f98-4df0-9108-53a7d38165f2)
 
+![44](https://github.com/user-attachments/assets/53ef0b3a-115e-4914-86d3-3d88e18faa4b)
 
