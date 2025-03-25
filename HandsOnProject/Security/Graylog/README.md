@@ -2,11 +2,11 @@
 
 # Graylog를 통한 CloudTrail 로그 관리
 
-AWS Cloud Trail → AWS Cloud Watch → AWS Kinesis Data Stream → Graylog
+AWS Cloud Trail → AWS Cloud Watch → AWS Kinesis Data Stream → Graylog  
 
-Graylog는 Private 환경으로 구성하였고 같은 Private Subnet에 Windows 서버를 생성하여 Windows 서버에서 웹페이지에 접속 가능하게 설정하였습니다.
+Graylog는 Private 환경으로 구성하였고 같은 Private Subnet에 Windows 서버를 생성하여 Windows 서버에서 웹페이지에 접속 가능하게 설정하였습니다.  
 
-만약 외부에서 사용을 원한다면 인프라 구성 앞단에 방화벽 장비와 ALB를 두어 보안적인 부분을 구성하여 사용하면 되지만 이번 내용에서는 Private Subnet에 구성하였습니다.
+만약 외부에서 사용을 원한다면 인프라 구성 앞단에 방화벽 장비와 ALB를 두어 보안적인 부분을 구성하여 사용하면 되지만 이번 내용에서는 Private Subnet에 구성하였습니다.    
 
 ##Graylog 서버 스펙
 - OS : Amazon Linux 2023
