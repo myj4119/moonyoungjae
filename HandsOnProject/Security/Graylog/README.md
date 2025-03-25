@@ -2,21 +2,21 @@
 
 # Graylog를 통한 CloudTrail 로그 관리
 
-AWS Cloud Trail → AWS Cloud Watch → AWS Kinesis Data Stream → Graylog <br>
+- AWS Cloud Trail → AWS Cloud Watch → AWS Kinesis Data Stream → Graylog <br>
 
-Graylog는 Private 환경으로 구성하였고 같은 Private Subnet에 Windows 서버를 생성하여 Windows 서버에서 웹페이지에 접속 가능하게 설정하였습니다. <br>
+- Graylog는 Private 환경으로 구성하였고 같은 Private Subnet에 Windows 서버를 생성하여 Windows 서버에서 웹페이지에 접속 가능하게 설정하였습니다. <br>
 
-만약 외부에서 사용을 원한다면 인프라 구성 앞단에 방화벽 장비와 ALB를 두어 보안적인 부분을 구성하여 사용하면 되지만 이번 내용에서는 Private Subnet에 구성하였습니다.  <br>
+- 만약 외부에서 사용을 원한다면 인프라 구성 앞단에 방화벽 장비와 ALB를 두어 보안적인 부분을 구성하여 사용하면 되지만 이번 내용에서는 Private Subnet에 구성하였습니다.  <br>
  <br> <br>
 
 ## Graylog 서버 스펙
 - OS : Amazon Linux 2023
 - Type : m5.large
 - Disk : 50GB
-   <br> <br> <br> <br>
+   <br> <br> <br>
 ## Graylog 서버 구성 방법
 - Docker-compose를 통한 구성
- <br> <br> <br> <br>
+ <br> <br> <br>
 
 ## 1. Docker 설치
 Docker 패키지 설치
@@ -90,7 +90,7 @@ $ sudo echo -n [사용자 패스워드] | sha256sum
  <br> <br>
 
 .env에 패스워드 입력
- <br> <br> <br> <br>
+ <br> <br> <br>
 
 
 ## 6. Graylog 설정 확인
@@ -141,10 +141,10 @@ graylog-1  | ===================================================================
 graylog-1  | 
 ...
 ```
- <br> <br> <br> <br>
+ <br> <br> <br>
 ## 7. Graylog 웹페이지 접속
 
- <br> <br> <br> <br>
+ <br> <br> <br>
 ## 8. Graylog와 AWS Cloud Watch 연동
 
 
