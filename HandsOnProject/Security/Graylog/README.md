@@ -4,7 +4,7 @@
 ![image](https://github.com/user-attachments/assets/9dadd1c2-a1bf-4cb0-9dc1-f66fb5e6a2ec)
 
 <br>
-- AWS Cloud Trail → AWS Cloud Watch → AWS Kinesis Data Stream → Graylog <br>
+- AWS Cloud Trail → AWS CloudWatch → AWS Kinesis Data Stream → Graylog <br>
 
 - Graylog는 Private 환경으로 구성하였고 같은 Private Subnet에 Windows 서버를 생성하여 Windows 서버에서 웹페이지에 접속 가능하게 설정하였습니다. <br>
 
@@ -166,24 +166,33 @@ graylog-1  |
 ## 7. Graylog 웹페이지 접속
 Graylog 웹페이지 접속 (http://[graylog_serverip:포트])
 ![image](https://github.com/user-attachments/assets/ff07bf1a-2749-4d0c-be49-9d7333d33196)
-<br>
-
-웹페이지 초기 세팅 진행
-![2](https://github.com/user-attachments/assets/e9dcbe82-2b41-4563-8b15-f6a0d9ba8f11)
-<br>
 
 <br> <br> <br>
-## 8. Graylog와 AWS Cloud Watch 연동
+## 8. Graylog와 AWS CloudWatch 연동
+Graylog 웹페이지 → System → Inputs → AWS Kinesis/CloudWatch
 ![77](https://github.com/user-attachments/assets/c8381ccd-58e7-4880-8e86-170861af4c09)
+<br>
 
+AWS IAM 사용자의 Access Key 입력, AWS에서 Kinesis 사용을 위한 정책 생성
 ![88](https://github.com/user-attachments/assets/b61b9387-53e9-46b6-aa4c-a9537e49e4b1)
+정책은 우측에 있는 Show Recommended Policy을 확인하여 생성 및 권한부여 진행
+<br>
 
+AWS Kinesis 생성
 ![99](https://github.com/user-attachments/assets/99f42805-b441-4c85-a652-5e4c04251750)
+Kinesis 이름을 지정
+<br>
 
+AWS CloudWatch 생성
 ![8899](https://github.com/user-attachments/assets/e8c0c74d-22c8-444b-bda6-cb6503dde596)
+AWS CloudTrail의 Trail을 생성하고 CloudWatch Log 옵션을 활성화 
+<br>
 
+AWS Knesis가 생성되었는지 확인
 ![9900](https://github.com/user-attachments/assets/f87a1156-20b1-4675-817b-cf44067f1430)
+<br>
 
+Graylog 웹페이지에서 CloudTrail 이벤트에 대한 값이 제대로 들어오는지 확인
 ![13](https://github.com/user-attachments/assets/6766adb7-4f98-4df0-9108-53a7d38165f2)
 
 ![44](https://github.com/user-attachments/assets/53ef0b3a-115e-4914-86d3-3d88e18faa4b)
