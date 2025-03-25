@@ -8,7 +8,7 @@ Graylog는 Private 환경으로 구성하였고 같은 Private Subnet에 Windows
 
 만약 외부에서 사용을 원한다면 인프라 구성 앞단에 방화벽 장비와 ALB를 두어 보안적인 부분을 구성하여 사용하면 되지만 이번 내용에서는 Private Subnet에 구성하였습니다.    
 
-##Graylog 서버 스펙
+## Graylog 서버 스펙
 - OS : Amazon Linux 2023
 - Type : m5.large
 - Disk : 50GB
