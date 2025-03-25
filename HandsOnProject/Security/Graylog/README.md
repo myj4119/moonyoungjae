@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/9dadd1c2-a1bf-4cb0-9dc1-f66fb5e6a2ec)
+g![image](https://github.com/user-attachments/assets/9dadd1c2-a1bf-4cb0-9dc1-f66fb5e6a2ec)
 
 Graylog를 통한 CloudTrail 로그 관리
 
@@ -67,6 +67,7 @@ $ sudo sysctl -p
 Graylog 실행 확인
 $ sudo docker-compose logs graylog
 
+``` bash
 ...
 graylog-1  | 2025-03-23 07:44:50,940 INFO : org.glassfish.grizzly.http.server.NetworkListener - Started listener bound to [0.0.0.0:9000]
 graylog-1  | 2025-03-23 07:44:50,942 INFO : org.glassfish.grizzly.http.server.HttpServer - [HttpServer] Started.
@@ -99,7 +100,7 @@ graylog-1  |
 graylog-1  | ========================================================================================================
 graylog-1  | 
 ...
-
+```
 
 7. Graylog 웹페이지 접속
 
