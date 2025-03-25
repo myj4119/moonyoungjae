@@ -4,4 +4,4 @@ DevOps 역량을 키우기 위한 개인 미니 프로젝트 진행 중
 
 ![image](https://github.com/user-attachments/assets/e01fc522-ff44-4e29-a8e8-ffff814f3a63)
 
-최종 목표는 개인 포트폴리오 사이트 혹은 일반 쇼핑몰 사이트 구축 예정.
+<<진행중>>
