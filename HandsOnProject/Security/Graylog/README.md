@@ -180,9 +180,5 @@ graylog-1  |
 
 ![9900](https://github.com/user-attachments/assets/f87a1156-20b1-4675-817b-cf44067f1430)
 
-![13](https://github.com/user-attachments/assets/06908af0-b9de-4b51-8257-cf0df9d33cb9)
-
-![44](https://github.com/user-attachments/assets/521a2ef6-ade4-4495-8aa7-d5921e3caa33)
-
 
 
