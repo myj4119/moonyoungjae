@@ -7,29 +7,29 @@
 - Graylog는 Private 환경으로 구성하였고 같은 Private Subnet에 Windows 서버를 생성하여 Windows 서버에서 웹페이지에 접속 가능하게 설정하였습니다. <br>
 
 - 만약 외부에서 사용을 원한다면 인프라 구성 앞단에 방화벽 장비와 ALB를 두어 보안적인 부분을 구성하여 사용하면 되지만 이번 내용에서는 Private Subnet에 구성하였습니다.  <br>
- <br> <br>
+<br> <br>
 
 ## Graylog 서버 스펙
 - OS : Amazon Linux 2023
 - Type : m5.large
 - Disk : 50GB
-   <br> <br> <br>
+<br> <br> <br>
 ## Graylog 서버 구성 방법
 - Docker-compose를 통한 구성
- <br> <br> <br>
+<br> <br> <br>
 
 ## 1. Docker 설치
 Docker 패키지 설치
 ```bash
 $ sudo yum install -y docker
 ```
- <br> <br>
+<br> <br>
 
 Docker 서비스 시작
 ``` bash
 $ sudo systemctl start docker
 ```
- <br> <br>
+<br> <br>
 
 Docker 서비스 부팅 시 자동 시작 설정
 ``` bash
@@ -41,7 +41,7 @@ $ sudo systemctl enable docker
 ``` bash
 $ sudo usermod -aG docker $USER
 ```
- <br> <br> <br> <br>
+<br> <br> <br> <br>
 
 ## 2. Dcoekr-compose 설치
 최신 Docker Compose 버전 가져오기
@@ -54,45 +54,62 @@ Docker Compose 바이너리 다운로드
 ``` bash
 $ sudo curl -L "https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
- <br> <br>
+<br> <br>
 
 실행 권한 부여
 ``` bash
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
- <br> <br> <br> <br>
+<br> <br> <br> <br>
 ## 3. docker-compose.yml 구성
 ``` bash
 $ sudo vi docker-compose.yml
 ```
 자세한 내용은 docker-compose.yml 참조
- <br> <br> <br> <br>
+<br> <br> <br> <br>
 ## 4. .env 구성
 ``` bash
 $ sudo vi .env
 ```
 자세한 내용은 .env.example 참조
- <br> <br> <br> <br>
+<br> <br> <br> <br>
 ## 5. 암호 발급
 pwgen 설치
 ``` bash
 $ sudo yum install -y pwgen
 ```
+<br><br>
 
 1개의 보안성이 높은 96자리 랜덤 패스워드 생성
 ``` bash
 $ sudo pwgen -N 1 -s 96
 ```
- <br> <br>
+<br> <br>
 
 패스워드를 sha-256 해시 함수로 변환
 ``` bash
 $ sudo echo -n [사용자 패스워드] | sha256sum
 ```
- <br> <br>
+<br> <br>
 
 .env에 패스워드 입력
- <br> <br> <br>
+``` bash
+# You MUST set a secret to secure/pepper the stored user passwords here. Use at least 64 characters.
+# Generate one by using for example: pwgen -N 1 -s 96
+# ATTENTION: This value must be the same on all Graylog nodes in the cluster.
+# Changing this value after installation will render all user sessions and encrypted values in the database invalid. (e.g. encrypted access tokens)
+GRAYLOG_PASSWORD_SECRET="[pwgen으로 생성한 패스워드 입력]"
+
+# You MUST specify a hash password for the root user (which you only need to initially set up the
+# system and in case you lose connectivity to your authentication backend)
+# This password cannot be changed using the API or via the web interface. If you need to change it,
+# modify it in this file.
+# Create one by using for example: echo -n yourpassword | shasum -a 256
+# and put the resulting hash value into the following line
+# CHANGE THIS!
+GRAYLOG_ROOT_PASSWORD_SHA2="[sha-256 해시 함수로 변환한 패스워드 입력]"
+```
+<br> <br> <br>
 
 
 ## 6. Graylog 설정 확인
@@ -101,13 +118,13 @@ Linux 커널 파라미터 변경 (Datanode는 많은 메모리 매핑을 필요�
 $ echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
 $ sudo sysctl -p
 ```
- <br> <br>
+<br> <br>
 
 Graylog 실행 확인
 ``` bash
 $ sudo docker-compose logs graylog
 ```
- <br>
+<br>
 
 ``` bash
 ...
@@ -143,10 +160,10 @@ graylog-1  | ===================================================================
 graylog-1  | 
 ...
 ```
- <br> <br> <br>
+<br> <br> <br>
 ## 7. Graylog 웹페이지 접속
 
- <br> <br> <br>
+<br> <br> <br>
 ## 8. Graylog와 AWS Cloud Watch 연동
 
 
