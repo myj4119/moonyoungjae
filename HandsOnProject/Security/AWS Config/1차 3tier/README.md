@@ -25,4 +25,4 @@ Instance
 | DB-SG  | MySQL   | 3306  | was, bastion  |
 | ALB-SG  | HTTP   | 80  | 0.0.0.0/0  |
 
-<span style="color:red">AWS Config에 대한 내용이므로 인프라 구성에 대한 설명은 다른 항목에서 진행 예정</span>
+**AWS Config에 대한 내용이므로 인프라 구성에 대한 설명은 다른 항목에서 진행 예정**
