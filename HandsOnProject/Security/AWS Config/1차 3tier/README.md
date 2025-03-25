@@ -17,7 +17,7 @@ Instance
 <br>
 
 ## SG 구성
-| Name | Type | Port | | Source |
+| Name | Type | Port | Source |
 |:---------:|:---------:|:---------:|:---------:|
 | bastion-SG  | SSH   | 22  | 0.0.0.0/0  |
 | WEB-SG  | SSH, HTTP   | 22, 80  | bastion  |
